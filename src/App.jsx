@@ -868,6 +868,56 @@ receiver.on('message', (msg) => {
           <div className="space-y-6">
             <h2 className="text-3xl font-bold mb-4">Framework Comparison</h2>
             
+            {/* Side-by-side comparison for selected frameworks */}
+            {compareFrameworks.length > 0 && (
+              <div className="mb-8 p-4 bg-gray-800 rounded border border-gray-700">
+                <h3 className="text-xl font-semibold mb-4 text-green-400">Selected Frameworks Comparison</h3>
+                <div className="grid grid-cols-1 md:grid-cols-{compareFrameworks.length} gap-4">
+                  {compareFrameworks.map(framework => (
+                    <div key={framework.id} className="bg-gray-900 p-4 rounded">
+                      <h4 className="text-lg font-bold text-green-400 mb-2">{framework.name}</h4>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <Tooltip content="Performance metric">
+                            <span className="text-yellow-400 font-semibold cursor-help">🚀 {framework.performance}</span>
+                          </Tooltip>
+                        </div>
+                        <div className="text-gray-400">💻 {framework.language}</div>
+                        <div className="text-gray-400">🎯 {framework.category}</div>
+                        {framework.benchmarks && (
+                          <div className="mt-3 pt-3 border-t border-gray-700">
+                            <div className="text-xs text-orange-400 font-semibold mb-1">Key Metrics:</div>
+                            {Object.entries(framework.benchmarks).slice(0, 2).map(([key, value]) => (
+                              <div key={key} className="text-xs text-gray-400">
+                                {key}: <span className="text-white">{value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        <div className="mt-3">
+                          <a 
+                            href={framework.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:text-blue-300 text-xs"
+                          >
+                            View GitHub →
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setCompareFrameworks([])}
+                  className="mt-4 px-3 py-1 bg-red-600 text-white text-sm rounded hover:bg-red-500 transition-colors"
+                >
+                  Clear Comparison
+                </button>
+              </div>
+            )}
+            
+            {/* Full comparison table */}
             <div className="overflow-x-auto">
               <table className="w-full bg-gray-800 rounded">
                 <thead>
@@ -877,19 +927,36 @@ receiver.on('message', (msg) => {
                     <th className="px-4 py-3 text-left">Performance</th>
                     <th className="px-4 py-3 text-left">Best For</th>
                     <th className="px-4 py-3 text-left">Key Feature</th>
+                    <th className="px-4 py-3 text-center">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {allFrameworks.map((f, idx) => (
-                    <tr key={f.id} className={`border-b border-gray-700 ${idx % 2 === 0 ? 'bg-gray-800' : 'bg-gray-850'}`}>
+                  {filteredFrameworks.map((f, idx) => (
+                    <tr key={f.id} className={`border-b border-gray-700 hover:bg-gray-750 transition-colors ${idx % 2 === 0 ? 'bg-gray-800' : 'bg-gray-850'}`}>
                       <td className="px-4 py-3">
                         <div className="font-semibold text-green-400">{f.name}</div>
                         <div className="text-xs text-gray-500">{f.fullName}</div>
                       </td>
                       <td className="px-4 py-3 text-gray-300">{f.language}</td>
-                      <td className="px-4 py-3 text-yellow-400">{f.performance}</td>
-                      <td className="px-4 py-3 text-gray-300">{f.useCases[0]}</td>
-                      <td className="px-4 py-3 text-blue-400">{f.highlights[0]}</td>
+                      <td className="px-4 py-3">
+                        <Tooltip content="Click for benchmarks">
+                          <span className="text-yellow-400 cursor-help">{f.performance}</span>
+                        </Tooltip>
+                      </td>
+                      <td className="px-4 py-3 text-gray-300 text-sm">{f.useCases[0]}</td>
+                      <td className="px-4 py-3 text-blue-400 text-sm">{f.highlights[0]}</td>
+                      <td className="px-4 py-3 text-center">
+                        <button
+                          onClick={() => toggleCompare(f)}
+                          className={`px-2 py-1 text-xs rounded transition-colors ${
+                            compareFrameworks.find(cf => cf.id === f.id)
+                              ? 'bg-yellow-600 hover:bg-yellow-500'
+                              : 'bg-gray-600 hover:bg-gray-500'
+                          }`}
+                        >
+                          {compareFrameworks.find(cf => cf.id === f.id) ? '✓' : '+'}
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -967,68 +1034,149 @@ receiver.on('message', (msg) => {
               </div>
             </div>
 
+            {/* Interactive Learning Exercises */}
+            <div className="bg-gray-800 p-6 rounded border border-gray-700">
+              <h3 className="text-xl font-semibold mb-4 text-blue-400">🎮 Interactive Learning Exercises</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-gray-900 p-4 rounded border border-gray-700 hover:border-blue-500 transition-colors">
+                  <h4 className="font-semibold text-green-400 mb-2">🌱 Beginner: Hello Agent</h4>
+                  <p className="text-sm text-gray-400 mb-3">Build your first AI agent with ANS authentication</p>
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-500">Topics:</div>
+                    <ul className="text-xs text-gray-400 space-y-1">
+                      <li>• Agent initialization</li>
+                      <li>• X.509 certificates</li>
+                      <li>• Basic task execution</li>
+                    </ul>
+                    <Tooltip content="Estimated time to complete">
+                      <div className="text-xs text-yellow-400 cursor-help">⏱ 15 minutes</div>
+                    </Tooltip>
+                  </div>
+                </div>
+                <div className="bg-gray-900 p-4 rounded border border-gray-700 hover:border-blue-500 transition-colors">
+                  <h4 className="font-semibold text-yellow-400 mb-2">⚡ Intermediate: Multi-Provider</h4>
+                  <p className="text-sm text-gray-400 mb-3">Orchestrate multiple LLMs with Ax framework</p>
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-500">Topics:</div>
+                    <ul className="text-xs text-gray-400 space-y-1">
+                      <li>• Provider routing</li>
+                      <li>• Failover strategies</li>
+                      <li>• Cost optimization</li>
+                    </ul>
+                    <Tooltip content="Estimated time to complete">
+                      <div className="text-xs text-yellow-400 cursor-help">⏱ 30 minutes</div>
+                    </Tooltip>
+                  </div>
+                </div>
+                <div className="bg-gray-900 p-4 rounded border border-gray-700 hover:border-blue-500 transition-colors">
+                  <h4 className="font-semibold text-red-400 mb-2">🚀 Advanced: Production Deploy</h4>
+                  <p className="text-sm text-gray-400 mb-3">Deploy SAFLA for high-performance inference</p>
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-500">Topics:</div>
+                    <ul className="text-xs text-gray-400 space-y-1">
+                      <li>• Memory optimization</li>
+                      <li>• JIT compilation</li>
+                      <li>• Performance tuning</li>
+                    </ul>
+                    <Tooltip content="Estimated time to complete">
+                      <div className="text-xs text-yellow-400 cursor-help">⏱ 45 minutes</div>
+                    </Tooltip>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Tutorial Examples */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-gray-800 p-6 rounded border border-gray-700">
-                <h3 className="text-lg font-semibold mb-3 text-blue-400">Quick Start Tutorial</h3>
+                <h3 className="text-lg font-semibold mb-3 text-blue-400">📚 Quick Start Tutorial</h3>
                 <div className="space-y-2 text-sm">
-                  <div>1. Install your chosen framework</div>
+                  <div className="font-semibold text-green-400">1. Install your chosen framework</div>
                   <div className="bg-gray-900 p-2 rounded font-mono text-xs">
                     npm install @ax-llm/ax  # or pip install a2-framework
                   </div>
-                  <div>2. Import and configure</div>
+                  <div className="font-semibold text-green-400 mt-3">2. Import and configure</div>
                   <div className="bg-gray-900 p-2 rounded font-mono text-xs">
                     import {'{ Ax }'} from '@ax-llm/ax';
                   </div>
-                  <div>3. Create your first agent</div>
-                  <div className="bg-gray-900 p-2 rounded font-mono text-xs">
-                    const agent = new Ax({'{ providers: {...} }'});
+                  <div className="font-semibold text-green-400 mt-3">3. Create your first agent</div>
+                  <div className="bg-gray-900 p-2 rounded font-mono text-xs overflow-x-auto">
+                    const agent = new Ax({'{'}providers: {'{'}openai: config{'}'}{'}'});
+                  </div>
+                  <div className="mt-4">
+                    <a href="https://github.com/ax-llm/ax#quick-start" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 text-xs">
+                      View full tutorial →
+                    </a>
                   </div>
                 </div>
               </div>
 
               <div className="bg-gray-800 p-6 rounded border border-gray-700">
-                <h3 className="text-lg font-semibold mb-3 text-orange-400">Best Practices</h3>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>• Use environment variables for API keys</li>
-                  <li>• Implement proper error handling and retries</li>
-                  <li>• Monitor performance metrics in production</li>
-                  <li>• Use type safety where available</li>
-                  <li>• Follow security best practices (PKI, encryption)</li>
-                  <li>• Test with multiple providers for resilience</li>
+                <h3 className="text-lg font-semibold mb-3 text-yellow-400">✅ Best Practices</h3>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start hover:text-gray-200 transition-colors">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <Tooltip content="Start simple and add complexity as needed">
+                      <span className="cursor-help">Start with a simple framework and scale up</span>
+                    </Tooltip>
+                  </li>
+                  <li className="flex items-start hover:text-gray-200 transition-colors">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <Tooltip content="Never hardcode secrets in your code">
+                      <span className="cursor-help">Use environment variables for API keys</span>
+                    </Tooltip>
+                  </li>
+                  <li className="flex items-start hover:text-gray-200 transition-colors">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <Tooltip content="Handle failures gracefully with exponential backoff">
+                      <span className="cursor-help">Implement proper error handling and retries</span>
+                    </Tooltip>
+                  </li>
+                  <li className="flex items-start hover:text-gray-200 transition-colors">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <Tooltip content="Track metrics to optimize performance and reduce costs">
+                      <span className="cursor-help">Monitor performance and costs continuously</span>
+                    </Tooltip>
+                  </li>
+                  <li className="flex items-start hover:text-gray-200 transition-colors">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <Tooltip content="Specification → Pseudocode → Architecture → Refinement → Code">
+                      <span className="cursor-help">Follow the SPARC methodology for development</span>
+                    </Tooltip>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            {/* Resources */}
+            {/* Community Resources */}
             <div className="bg-gray-800 p-6 rounded border border-gray-700">
-              <h3 className="text-xl font-semibold mb-4">Additional Resources</h3>
+              <h3 className="text-xl font-semibold mb-4 text-purple-400">🌐 Community & Resources</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <h4 className="font-semibold text-green-400 mb-2">Documentation</h4>
-                  <ul className="space-y-1 text-sm text-gray-400">
-                    <li>• API References</li>
-                    <li>• Integration Guides</li>
-                    <li>• Migration Paths</li>
-                    <li>• Troubleshooting</li>
+                  <h4 className="font-semibold text-green-400 mb-2">📚 Documentation</h4>
+                  <ul className="space-y-1 text-sm">
+                    <li><a href="https://github.com/ruvnet/Agent-Name-Service#readme" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">ANS Documentation →</a></li>
+                    <li><a href="https://github.com/ax-llm/ax#documentation" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Ax Framework Docs →</a></li>
+                    <li><a href="https://github.com/ruvnet/safla#getting-started" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">SAFLA Guide →</a></li>
+                    <li><a href="https://github.com/ruvnet/federated-mcp" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Federated MCP →</a></li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">Examples</h4>
-                  <ul className="space-y-1 text-sm text-gray-400">
-                    <li>• Production Deployments</li>
-                    <li>• Performance Benchmarks</li>
-                    <li>• Security Patterns</li>
-                    <li>• Cost Optimization</li>
+                  <h4 className="font-semibold text-yellow-400 mb-2">👥 Community</h4>
+                  <ul className="space-y-1 text-sm">
+                    <li><a href="https://discord.gg/agentic" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Discord Server →</a></li>
+                    <li><a href="https://github.com/topics/agentic-ai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">GitHub Topics →</a></li>
+                    <li><a href="https://twitter.com/search?q=%23AgenticAI" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Twitter/X Community →</a></li>
+                    <li><a href="https://stackoverflow.com/questions/tagged/agentic-ai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Stack Overflow →</a></li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-orange-400 mb-2">Community</h4>
-                  <ul className="space-y-1 text-sm text-gray-400">
-                    <li>• GitHub Discussions</li>
-                    <li>• Discord Channels</li>
-                    <li>• Stack Overflow</li>
-                    <li>• Contributing Guide</li>
+                  <h4 className="font-semibold text-blue-400 mb-2">🏆 Learn & Compete</h4>
+                  <ul className="space-y-1 text-sm">
+                    <li><a href="https://github.com/ruvnet/awesome-agentic-ai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Awesome Resources →</a></li>
+                    <li><a href="https://kaggle.com/competitions" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Kaggle Competitions →</a></li>
+                    <li><a href="https://huggingface.co/spaces" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">HuggingFace Spaces →</a></li>
+                    <li><a href="https://github.com/trending/rust?since=weekly" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Trending Projects →</a></li>
                   </ul>
                 </div>
               </div>
