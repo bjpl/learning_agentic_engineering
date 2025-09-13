@@ -411,10 +411,9 @@ function App() {
         {activeSection === 'comparison' && <ComparisonMatrix frameworks={[...frameworks.core, ...frameworks.specialized]} />}
         {activeSection === 'learning' && <LearningPaths />}
         {activeSection === 'playground' && <CodePlayground />}
-        {selectedFramework && (
+        {activeSection === 'frameworks' && selectedFramework && (
           <FrameworkDetail 
-            framework={selectedFramework} 
-            onClose={() => setSelectedFramework(null)} 
+            frameworks={[...frameworks.core, ...frameworks.specialized]}
           />
         )}
       </main>
