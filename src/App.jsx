@@ -1198,7 +1198,208 @@ receiver.on('message', (msg) => {
         {/* Learn Section */}
         {activeTab === 'learn' && (
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold mb-4">Learning Paths & Resources</h2>
+            <div className="flex justify-between items-start">
+              <div>
+                <h2 className="text-3xl font-bold mb-2">Learning Paths & Resources</h2>
+                <p className="text-gray-400 text-sm">Master AI frameworks with structured learning paths, practical projects, and industry-relevant skills</p>
+              </div>
+              <div className="text-right">
+                <div className="text-2xl font-bold text-green-400">12 Weeks</div>
+                <div className="text-sm text-gray-400">to Production Ready</div>
+              </div>
+            </div>
+            
+            {/* Learning Path Roadmap */}
+            <div className="bg-gray-800 p-6 rounded border border-gray-700">
+              <h3 className="text-xl font-semibold mb-4 text-green-400">🗺️ Complete Learning Roadmap</h3>
+              
+              {/* Progress Timeline */}
+              <div className="mb-6">
+                <div className="flex justify-between text-xs text-gray-400 mb-2">
+                  <span>Start</span>
+                  <span>Week 4</span>
+                  <span>Week 8</span>
+                  <span>Week 12</span>
+                </div>
+                <div className="bg-gray-900 rounded-full h-3 relative">
+                  <div className="absolute inset-0 flex">
+                    <div className="bg-blue-600 rounded-l-full" style={{width: '25%'}}></div>
+                    <div className="bg-green-600" style={{width: '25%'}}></div>
+                    <div className="bg-yellow-600" style={{width: '25%'}}></div>
+                    <div className="bg-red-600 rounded-r-full" style={{width: '25%'}}></div>
+                  </div>
+                </div>
+                <div className="flex justify-between text-xs mt-2">
+                  <span className="text-blue-400">Foundations</span>
+                  <span className="text-green-400">Core</span>
+                  <span className="text-yellow-400">Frameworks</span>
+                  <span className="text-red-400">Advanced</span>
+                </div>
+              </div>
+              
+              {/* Structured Curriculum */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {/* Foundations */}
+                <div className="bg-gray-900 p-4 rounded border border-blue-800">
+                  <h4 className="font-semibold text-blue-400 mb-3">🌱 Foundations (Weeks 1-3)</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Programming Basics</div>
+                        <div className="text-xs text-gray-500">Python, TypeScript, Async</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">API Fundamentals</div>
+                        <div className="text-xs text-gray-500">REST, GraphQL, WebSockets</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Git & DevOps</div>
+                        <div className="text-xs text-gray-500">Version control, CI/CD</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Cloud Basics</div>
+                        <div className="text-xs text-gray-500">AWS, Azure, GCP intro</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div className="mt-3 pt-3 border-t border-gray-700">
+                    <a href="https://www.coursera.org/learn/python-for-applied-data-science-ai" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 Python for AI Course →
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Core Concepts */}
+                <div className="bg-gray-900 p-4 rounded border border-green-800">
+                  <h4 className="font-semibold text-green-400 mb-3">🎯 Core Concepts (Weeks 4-6)</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">LLM Fundamentals</div>
+                        <div className="text-xs text-gray-500">Transformers, attention, tokens</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Agent Architectures</div>
+                        <div className="text-xs text-gray-500">ReAct, CoT, Tool use</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Prompt Engineering</div>
+                        <div className="text-xs text-gray-500">Few-shot, Chain-of-thought</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Vector Databases</div>
+                        <div className="text-xs text-gray-500">Embeddings, RAG, search</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div className="mt-3 pt-3 border-t border-gray-700">
+                    <a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 LangChain Course →
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Framework Mastery */}
+                <div className="bg-gray-900 p-4 rounded border border-yellow-800">
+                  <h4 className="font-semibold text-yellow-400 mb-3">⚡ Frameworks (Weeks 7-9)</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Security: ANS</div>
+                        <div className="text-xs text-gray-500">PKI, X.509, Zero-trust</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Serverless: A2</div>
+                        <div className="text-xs text-gray-500">Lambda, Functions, Scale</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Multi-Provider: Ax</div>
+                        <div className="text-xs text-gray-500">Routing, Failover, Cost</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Performance: SAFLA</div>
+                        <div className="text-xs text-gray-500">Memory, JIT, Optimization</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div className="mt-3 pt-3 border-t border-gray-700">
+                    <a href="https://github.com/ruvnet/awesome-agentic-ai" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 Framework Examples →
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Advanced Topics */}
+                <div className="bg-gray-900 p-4 rounded border border-red-800">
+                  <h4 className="font-semibold text-red-400 mb-3">🚀 Advanced (Weeks 10-12)</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Distributed Systems</div>
+                        <div className="text-xs text-gray-500">Consensus, CAP, Sharding</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Federated Learning</div>
+                        <div className="text-xs text-gray-500">Privacy, Differential, FL</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">Production Deploy</div>
+                        <div className="text-xs text-gray-500">K8s, Monitoring, SRE</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">✓</span>
+                      <div>
+                        <div className="text-gray-300">MLOps & LLMOps</div>
+                        <div className="text-xs text-gray-500">Pipelines, Testing, CI/CD</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div className="mt-3 pt-3 border-t border-gray-700">
+                    <a href="https://mlops.community/" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 MLOps Community →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
             
             {/* SPARC Methodology */}
             <div className="bg-gray-800 p-6 rounded border border-gray-700">
@@ -1222,53 +1423,173 @@ receiver.on('message', (msg) => {
               </div>
             </div>
 
-            {/* Interactive Learning Exercises */}
+            {/* Practical Projects with SPARC */}
             <div className="bg-gray-800 p-6 rounded border border-gray-700">
-              <h3 className="text-xl font-semibold mb-4 text-blue-400">🎮 Interactive Learning Exercises</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-gray-900 p-4 rounded border border-gray-700 hover:border-blue-500 transition-colors">
-                  <h4 className="font-semibold text-green-400 mb-2">🌱 Beginner: Hello Agent</h4>
-                  <p className="text-sm text-gray-400 mb-3">Build your first AI agent with ANS authentication</p>
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-500">Topics:</div>
-                    <ul className="text-xs text-gray-400 space-y-1">
-                      <li>• Agent initialization</li>
-                      <li>• X.509 certificates</li>
-                      <li>• Basic task execution</li>
-                    </ul>
-                    <Tooltip content="Estimated time to complete">
-                      <div className="text-xs text-yellow-400 cursor-help">⏱ 15 minutes</div>
-                    </Tooltip>
+              <h3 className="text-xl font-semibold mb-4 text-blue-400">🔨 Practical Projects</h3>
+              <p className="text-sm text-gray-400 mb-4">Build real-world applications using SPARC methodology</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Project 1 */}
+                <div className="bg-gray-900 p-4 rounded border border-gray-700">
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-semibold text-green-400">🤖 Project 1: AI Research Assistant</h4>
+                    <span className="text-xs bg-green-900 text-green-400 px-2 py-1 rounded">Beginner</span>
+                  </div>
+                  <p className="text-sm text-gray-400 mb-3">Build a multi-agent system that researches topics and generates reports</p>
+                  
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">S:</span>
+                      <span className="text-gray-300">Research any topic, summarize findings, cite sources</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">P:</span>
+                      <span className="text-gray-300">Query → Search → Extract → Synthesize → Report</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">A:</span>
+                      <span className="text-gray-300">3 agents: Researcher, Analyzer, Writer</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">R:</span>
+                      <span className="text-gray-300">Add caching, deduplication, citation validation</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">C:</span>
+                      <span className="text-gray-300">Python, LangChain, Ax framework</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3 pt-3 border-t border-gray-700 flex gap-2">
+                    <a href="https://github.com/langchain-ai/langchain/tree/master/templates/research-assistant" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 Starter Code
+                    </a>
+                    <a href="https://python.langchain.com/docs/use_cases/research" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      📚 Tutorial
+                    </a>
                   </div>
                 </div>
-                <div className="bg-gray-900 p-4 rounded border border-gray-700 hover:border-blue-500 transition-colors">
-                  <h4 className="font-semibold text-yellow-400 mb-2">⚡ Intermediate: Multi-Provider</h4>
-                  <p className="text-sm text-gray-400 mb-3">Orchestrate multiple LLMs with Ax framework</p>
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-500">Topics:</div>
-                    <ul className="text-xs text-gray-400 space-y-1">
-                      <li>• Provider routing</li>
-                      <li>• Failover strategies</li>
-                      <li>• Cost optimization</li>
-                    </ul>
-                    <Tooltip content="Estimated time to complete">
-                      <div className="text-xs text-yellow-400 cursor-help">⏱ 30 minutes</div>
-                    </Tooltip>
+                
+                {/* Project 2 */}
+                <div className="bg-gray-900 p-4 rounded border border-gray-700">
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-semibold text-yellow-400">🌐 Project 2: Serverless AI Pipeline</h4>
+                    <span className="text-xs bg-yellow-900 text-yellow-400 px-2 py-1 rounded">Intermediate</span>
+                  </div>
+                  <p className="text-sm text-gray-400 mb-3">Deploy auto-scaling AI workflow on AWS Lambda with A2 framework</p>
+                  
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">S:</span>
+                      <span className="text-gray-300">Process documents, extract data, trigger actions</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">P:</span>
+                      <span className="text-gray-300">S3 upload → Lambda → Process → DynamoDB → SNS</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">A:</span>
+                      <span className="text-gray-300">Event-driven, serverless, multi-region</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">R:</span>
+                      <span className="text-gray-300">Add retry logic, dead letter queues, monitoring</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">C:</span>
+                      <span className="text-gray-300">Python, A2, AWS SAM, Terraform</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3 pt-3 border-t border-gray-700 flex gap-2">
+                    <a href="https://aws.amazon.com/blogs/compute/building-serverless-document-processing-workflows/" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 AWS Guide
+                    </a>
+                    <a href="https://github.com/aws-samples/serverless-patterns" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      📦 Templates
+                    </a>
                   </div>
                 </div>
-                <div className="bg-gray-900 p-4 rounded border border-gray-700 hover:border-blue-500 transition-colors">
-                  <h4 className="font-semibold text-red-400 mb-2">🚀 Advanced: Production Deploy</h4>
-                  <p className="text-sm text-gray-400 mb-3">Deploy SAFLA for high-performance inference</p>
-                  <div className="space-y-2">
-                    <div className="text-xs text-gray-500">Topics:</div>
-                    <ul className="text-xs text-gray-400 space-y-1">
-                      <li>• Memory optimization</li>
-                      <li>• JIT compilation</li>
-                      <li>• Performance tuning</li>
-                    </ul>
-                    <Tooltip content="Estimated time to complete">
-                      <div className="text-xs text-yellow-400 cursor-help">⏱ 45 minutes</div>
-                    </Tooltip>
+                
+                {/* Project 3 */}
+                <div className="bg-gray-900 p-4 rounded border border-gray-700">
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-semibold text-orange-400">🔒 Project 3: Secure Multi-Agent System</h4>
+                    <span className="text-xs bg-orange-900 text-orange-400 px-2 py-1 rounded">Advanced</span>
+                  </div>
+                  <p className="text-sm text-gray-400 mb-3">Implement PKI-based agent authentication with ANS framework</p>
+                  
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">S:</span>
+                      <span className="text-gray-300">Zero-trust agent network with certificate validation</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">P:</span>
+                      <span className="text-gray-300">Generate cert → Register → Verify → Execute → Audit</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">A:</span>
+                      <span className="text-gray-300">CA, agent registry, policy engine, audit log</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">R:</span>
+                      <span className="text-gray-300">Add revocation, rotation, compliance checks</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">C:</span>
+                      <span className="text-gray-300">TypeScript, ANS, HashiCorp Vault, K8s</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3 pt-3 border-t border-gray-700 flex gap-2">
+                    <a href="https://www.vaultproject.io/docs/secrets/pki" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 PKI Guide
+                    </a>
+                    <a href="https://github.com/ruvnet/Agent-Name-Service" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔐 ANS Docs
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Project 4 */}
+                <div className="bg-gray-900 p-4 rounded border border-gray-700">
+                  <div className="flex justify-between items-start mb-3">
+                    <h4 className="font-semibold text-red-400">🚀 Project 4: High-Performance AI Engine</h4>
+                    <span className="text-xs bg-red-900 text-red-400 px-2 py-1 rounded">Expert</span>
+                  </div>
+                  <p className="text-sm text-gray-400 mb-3">Build 100K+ ops/sec inference engine with SAFLA</p>
+                  
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">S:</span>
+                      <span className="text-gray-300">Real-time inference with {'<'}10ms latency</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">P:</span>
+                      <span className="text-gray-300">Load model → Optimize → Batch → Infer → Cache</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">A:</span>
+                      <span className="text-gray-300">Memory pool, JIT compiler, cache layer</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">R:</span>
+                      <span className="text-gray-300">Profile, optimize hotspots, add SIMD</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-400 font-bold mr-2">C:</span>
+                      <span className="text-gray-300">Rust, SAFLA, ONNX Runtime, TensorRT</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3 pt-3 border-t border-gray-700 flex gap-2">
+                    <a href="https://onnxruntime.ai/docs/performance/" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      🔗 Performance
+                    </a>
+                    <a href="https://github.com/ruvnet/safla" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300">
+                      ⚡ SAFLA
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1336,35 +1657,222 @@ receiver.on('message', (msg) => {
               </div>
             </div>
 
-            {/* Community Resources */}
+            {/* Certifications & Career Path */}
             <div className="bg-gray-800 p-6 rounded border border-gray-700">
-              <h3 className="text-xl font-semibold mb-4 text-purple-400">🌐 Community & Resources</h3>
+              <h3 className="text-xl font-semibold mb-4 text-purple-400">🎓 Certifications & Career Development</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                {/* Certification Paths */}
+                <div className="bg-gray-900 p-4 rounded">
+                  <h4 className="font-semibold text-yellow-400 mb-3">🏅 Recommended Certifications</h4>
+                  <div className="space-y-3">
+                    <div className="border-l-2 border-green-600 pl-3">
+                      <div className="font-semibold text-sm text-green-400">Foundation Level</div>
+                      <ul className="text-xs text-gray-400 mt-1 space-y-1">
+                        <li><a href="https://aws.amazon.com/certification/certified-cloud-practitioner/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">AWS Cloud Practitioner</a> - $100</li>
+                        <li><a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Azure AI Fundamentals</a> - $99</li>
+                      </ul>
+                    </div>
+                    <div className="border-l-2 border-yellow-600 pl-3">
+                      <div className="font-semibold text-sm text-yellow-400">Professional Level</div>
+                      <ul className="text-xs text-gray-400 mt-1 space-y-1">
+                        <li><a href="https://aws.amazon.com/certification/certified-machine-learning-specialty/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">AWS ML Specialty</a> - $300</li>
+                        <li><a href="https://cloud.google.com/learn/certification/machine-learning-engineer" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Google Cloud ML Engineer</a> - $200</li>
+                      </ul>
+                    </div>
+                    <div className="border-l-2 border-red-600 pl-3">
+                      <div className="font-semibold text-sm text-red-400">Expert Level</div>
+                      <ul className="text-xs text-gray-400 mt-1 space-y-1">
+                        <li><a href="https://www.cncf.io/training/certification/ckad/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">CKAD (Kubernetes)</a> - $395</li>
+                        <li><a href="https://www.isaca.org/credentialing/certified-in-the-governance-of-enterprise-it" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">AI Governance</a> - $760</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Career Paths */}
+                <div className="bg-gray-900 p-4 rounded">
+                  <h4 className="font-semibold text-green-400 mb-3">💼 Career Opportunities</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between items-center py-1 border-b border-gray-700">
+                      <span className="text-gray-300">AI Engineer</span>
+                      <span className="text-green-400 text-xs">$120-180k</span>
+                    </div>
+                    <div className="flex justify-between items-center py-1 border-b border-gray-700">
+                      <span className="text-gray-300">ML Ops Engineer</span>
+                      <span className="text-green-400 text-xs">$130-190k</span>
+                    </div>
+                    <div className="flex justify-between items-center py-1 border-b border-gray-700">
+                      <span className="text-gray-300">AI Architect</span>
+                      <span className="text-green-400 text-xs">$150-220k</span>
+                    </div>
+                    <div className="flex justify-between items-center py-1">
+                      <span className="text-gray-300">Principal AI Engineer</span>
+                      <span className="text-green-400 text-xs">$200-300k+</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-gray-700">
+                    <div className="text-xs text-gray-500">Source: levels.fyi, 2024 US market</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Skills Matrix */}
+              <div className="bg-gray-900 p-4 rounded">
+                <h4 className="font-semibold text-blue-400 mb-3">🎯 Required Skills by Role</h4>
+                <div className="overflow-x-auto">
+                  <table className="text-xs w-full">
+                    <thead>
+                      <tr className="border-b border-gray-700">
+                        <th className="text-left py-2">Skill</th>
+                        <th className="text-center px-2">Junior</th>
+                        <th className="text-center px-2">Mid</th>
+                        <th className="text-center px-2">Senior</th>
+                        <th className="text-center px-2">Principal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-gray-700">
+                        <td className="py-2">Python/TypeScript</td>
+                        <td className="text-center">✓</td>
+                        <td className="text-center">✓</td>
+                        <td className="text-center">✓</td>
+                        <td className="text-center">✓</td>
+                      </tr>
+                      <tr className="border-b border-gray-700">
+                        <td className="py-2">LLM/Transformers</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">✓</td>
+                        <td className="text-center">✓</td>
+                        <td className="text-center">✓</td>
+                      </tr>
+                      <tr className="border-b border-gray-700">
+                        <td className="py-2">Distributed Systems</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">✓</td>
+                        <td className="text-center">✓</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2">System Design</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">-</td>
+                        <td className="text-center">✓</td>
+                        <td className="text-center">✓</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            
+            {/* Learning Resources */}
+            <div className="bg-gray-800 p-6 rounded border border-gray-700">
+              <h3 className="text-xl font-semibold mb-4 text-blue-400">📚 Essential Learning Resources</h3>
+              
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Books & Papers */}
                 <div>
-                  <h4 className="font-semibold text-green-400 mb-2">📚 Documentation</h4>
-                  <ul className="space-y-1 text-sm">
-                    <li><a href="https://github.com/ruvnet/Agent-Name-Service#readme" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">ANS Documentation →</a></li>
-                    <li><a href="https://github.com/ax-llm/ax#documentation" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Ax Framework Docs →</a></li>
-                    <li><a href="https://github.com/ruvnet/safla#getting-started" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">SAFLA Guide →</a></li>
-                    <li><a href="https://github.com/ruvnet/federated-mcp" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Federated MCP →</a></li>
+                  <h4 className="font-semibold text-green-400 mb-3">📖 Books & Papers</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 mr-2">★</span>
+                      <div>
+                        <a href="https://www.deeplearningbook.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Deep Learning</a>
+                        <div className="text-xs text-gray-500">Goodfellow, Bengio, Courville</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 mr-2">★</span>
+                      <div>
+                        <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Attention Is All You Need</a>
+                        <div className="text-xs text-gray-500">Transformer paper</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 mr-2">★</span>
+                      <div>
+                        <a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">ReAct: Reasoning + Acting</a>
+                        <div className="text-xs text-gray-500">Agent architecture</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 mr-2">★</span>
+                      <div>
+                        <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Designing Data-Intensive Apps</a>
+                        <div className="text-xs text-gray-500">Martin Kleppmann</div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
+                
+                {/* Video Courses */}
                 <div>
-                  <h4 className="font-semibold text-yellow-400 mb-2">👥 Community</h4>
-                  <ul className="space-y-1 text-sm">
-                    <li><a href="https://discord.gg/agentic" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Discord Server →</a></li>
-                    <li><a href="https://github.com/topics/agentic-ai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">GitHub Topics →</a></li>
-                    <li><a href="https://twitter.com/search?q=%23AgenticAI" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Twitter/X Community →</a></li>
-                    <li><a href="https://stackoverflow.com/questions/tagged/agentic-ai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Stack Overflow →</a></li>
+                  <h4 className="font-semibold text-yellow-400 mb-3">🎥 Video Courses</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">▶</span>
+                      <div>
+                        <a href="https://www.deeplearning.ai/courses/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">DeepLearning.AI</a>
+                        <div className="text-xs text-gray-500">Andrew Ng courses</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">▶</span>
+                      <div>
+                        <a href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Fast.ai</a>
+                        <div className="text-xs text-gray-500">Practical deep learning</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">▶</span>
+                      <div>
+                        <a href="https://fullstackdeeplearning.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Full Stack Deep Learning</a>
+                        <div className="text-xs text-gray-500">Production ML</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2">▶</span>
+                      <div>
+                        <a href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Andrej Karpathy</a>
+                        <div className="text-xs text-gray-500">Neural networks from scratch</div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
+                
+                {/* Communities */}
                 <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">🏆 Learn & Compete</h4>
-                  <ul className="space-y-1 text-sm">
-                    <li><a href="https://github.com/ruvnet/awesome-agentic-ai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Awesome Resources →</a></li>
-                    <li><a href="https://kaggle.com/competitions" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Kaggle Competitions →</a></li>
-                    <li><a href="https://huggingface.co/spaces" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">HuggingFace Spaces →</a></li>
-                    <li><a href="https://github.com/trending/rust?since=weekly" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">Trending Projects →</a></li>
+                  <h4 className="font-semibold text-purple-400 mb-3">👥 Active Communities</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start">
+                      <span className="text-blue-400 mr-2">💬</span>
+                      <div>
+                        <a href="https://discord.gg/openai" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">OpenAI Discord</a>
+                        <div className="text-xs text-gray-500">15k+ developers</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-400 mr-2">💬</span>
+                      <div>
+                        <a href="https://www.reddit.com/r/MachineLearning/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">r/MachineLearning</a>
+                        <div className="text-xs text-gray-500">3M+ members</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-400 mr-2">💬</span>
+                      <div>
+                        <a href="https://huggingface.co/join/discord" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">HuggingFace Discord</a>
+                        <div className="text-xs text-gray-500">Open source AI</div>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-blue-400 mr-2">💬</span>
+                      <div>
+                        <a href="https://laion.ai/discord" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">LAION Discord</a>
+                        <div className="text-xs text-gray-500">Open AI research</div>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
