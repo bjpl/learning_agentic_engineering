@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Test</title>
+</head>
+<body>
+    <h1>Testing React App</h1>
+    <div id="test-output"></div>
+    <script>
+        // Test if the deployed site loads
+        fetch('https://bjpl.github.io/learning_agentic_engineering/')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('test-output').innerHTML = 'Page loaded, checking for React...';
+                
+                // Check if the JS bundle loads
+                fetch('https://bjpl.github.io/learning_agentic_engineering/assets/index-gghfQUwv.js')
+                    .then(res => {
+                        if (res.ok) {
+                            document.getElementById('test-output').innerHTML += '<br>JS Bundle loaded successfully';
+                        } else {
+                            document.getElementById('test-output').innerHTML += '<br>JS Bundle failed: ' + res.status;
+                        }
+                    })
+                    .catch(err => {
+                        document.getElementById('test-output').innerHTML += '<br>JS Error: ' + err;
+                    });
+            })
+            .catch(err => {
+                document.getElementById('test-output').innerHTML = 'Error: ' + err;
+            });
+    </script>
+</body>
+</html>
