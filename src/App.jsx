@@ -934,32 +934,31 @@ receiver.on('message', (msg) => {
                         <p className="text-sm text-gray-400 mt-1">{framework.architecture}</p>
                       </div>
 
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-center">
                         <button 
                           onClick={() => toggleCode(framework.id)}
-                          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500 transition-colors"
+                          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500 transition-colors flex items-center gap-1"
                         >
                           {showCode[framework.id] ? '🔽 Hide' : '🔶 Show'} Code
                         </button>
-                        <Tooltip content="View on GitHub">
-                          <a 
-                            href={framework.repo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors"
-                          >
-                            🔗 GitHub
-                          </a>
-                        </Tooltip>
+                        <a 
+                          href={framework.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors"
+                          title="View on GitHub"
+                        >
+                          🔗 GitHub
+                        </a>
                         <button
                           onClick={() => toggleCompare(framework)}
-                          className={`px-4 py-2 rounded transition-colors ${
+                          className={`px-4 py-2 rounded transition-colors flex items-center gap-1 text-white ${
                             compareFrameworks.find(f => f.id === framework.id)
                               ? 'bg-yellow-600 hover:bg-yellow-500'
                               : 'bg-gray-600 hover:bg-gray-500'
                           }`}
                         >
-                          {compareFrameworks.find(f => f.id === framework.id) ? '✓ ' : '⊕ '}Compare
+                          {compareFrameworks.find(f => f.id === framework.id) ? '✓' : '⊕'} Compare
                         </button>
                       </div>
 
@@ -1028,21 +1027,32 @@ receiver.on('message', (msg) => {
                         </ul>
                       </div>
 
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 items-center">
                         <button 
                           onClick={() => toggleCode(framework.id)}
-                          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors"
+                          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500 transition-colors flex items-center gap-1"
                         >
-                          {showCode[framework.id] ? 'Hide' : 'Show'} Code Example
+                          {showCode[framework.id] ? '🔽 Hide' : '🔶 Show'} Code
                         </button>
                         <a 
                           href={framework.repo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-500 transition-colors"
+                          className="inline-flex items-center gap-1 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 transition-colors"
+                          title="View on GitHub"
                         >
-                          View Repository →
+                          🔗 GitHub
                         </a>
+                        <button
+                          onClick={() => toggleCompare(framework)}
+                          className={`px-4 py-2 rounded transition-colors flex items-center gap-1 text-white ${
+                            compareFrameworks.find(f => f.id === framework.id)
+                              ? 'bg-yellow-600 hover:bg-yellow-500'
+                              : 'bg-gray-600 hover:bg-gray-500'
+                          }`}
+                        >
+                          {compareFrameworks.find(f => f.id === framework.id) ? '✓' : '⊕'} Compare
+                        </button>
                       </div>
 
                       {showCode[framework.id] && (
